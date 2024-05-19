@@ -16,7 +16,6 @@ public class DataGenerator implements CommandLineRunner {
 
     private final UserService userService;
     private final RoleService roleService;
-//    private final AddressService addressService;
 
     public DataGenerator(UserService userService, RoleService roleService) {
         this.userService = userService;

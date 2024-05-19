@@ -2,13 +2,13 @@ package com.cydeo.dto;
 
 import com.cydeo.enums.Gender;
 import com.cydeo.enums.State;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.validation.constraints.*;
 
-@Data
+@Getter
+@Setter
+@ToString
 @NoArgsConstructor
 @AllArgsConstructor
 
