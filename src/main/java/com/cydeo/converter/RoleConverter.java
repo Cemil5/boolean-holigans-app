@@ -1,26 +1,26 @@
 package com.cydeo.converter;
-import com.cydeo.dto.UserDto;
-import com.cydeo.service.UserService;
+
+import com.cydeo.dto.RoleDto;
+import com.cydeo.service.RoleService;
 import org.springframework.boot.context.properties.ConfigurationPropertiesBinding;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;
 
 @Component
 @ConfigurationPropertiesBinding
-public class UserConverter implements Converter<String, UserDto> {
-    UserService userService;
+public class RoleConverter implements Converter<String, RoleDto> {
 
-    public UserConverter(UserService userService) {
-        this.userService = userService;
+    final RoleService roleService;
+
+    public RoleConverter(RoleService roleService) {
+        this.roleService = roleService;
     }
 
     @Override
-    public UserDto convert(String source) {
+    public RoleDto convert(String source) {
         if (source == null || source.equals("")) {
             return null;
         }
-
-        return userService.findById(source);
+        return roleService.findById(Long.parseLong(source));
     }
 }
-

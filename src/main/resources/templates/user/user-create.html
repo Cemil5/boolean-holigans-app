@@ -60,11 +60,11 @@
                     <div class="col-3 form-group">
                         <label>Phone Number
                             <input type="text" class="form-control" placeholder="Phone Number"
-                                   th:field="*{address.phoneNumber}">
+                                   th:field="*{phone}">
                         </label>
-                        <div class="text-danger" th:if="${#fields.hasErrors('address.phoneNumber')}">
+                        <div class="text-danger" th:if="${#fields.hasErrors('phone')}">
                             <ul>
-                                <li th:each="error: ${#fields.errors('address.phoneNumber')}" th:text="${error}"></li>
+                                <li th:each="error: ${#fields.errors('phone')}" th:text="${error}"></li>
                             </ul>
                         </div>
                     </div>
@@ -72,11 +72,11 @@
                 <div class="row col-12">
                     <div class="col-3 form-group">
                         <label>Password
-                            <input type="password" class="form-control" placeholder="Password" th:field="*{password}">
+                            <input type="password" class="form-control" placeholder="Password" th:field="*{passWord}">
                         </label>
-                        <div class="text-danger" th:if="${#fields.hasErrors('password')}">
+                        <div class="text-danger" th:if="${#fields.hasErrors('passWord')}">
                             <ul>
-                                <li th:each="error: ${#fields.errors('password')}" th:text="${error}"></li>
+                                <li th:each="error: ${#fields.errors('passWord')}" th:text="${error}"></li>
                             </ul>
                         </div>
                     </div>
@@ -142,7 +142,7 @@
                         <select class="custom-select" th:field="*{address.state}">
                             <option th:value="''" selected>Select a State</option>
                             <option th:each="theState:${states}" th:value="${theState}"
-                                    th:text="${theState+' - '+theState.abbreviation}"></option>
+                                    th:text="${theState}"></option>
                         </select>
                         <div class="text-danger" th:if="${#fields.hasErrors('address.state')}">
                             <ul>
@@ -187,7 +187,7 @@
                                     <td th:text="${user.firstName} + ' ' + ${user.lastName}"></td>
                                     <td th:text="${user.userName}"></td>
                                     <td th:text="${user.gender.value}"></td>
-                                    <td th:text="${user.address.phoneNumber}"></td>
+                                    <td th:text="${user.phone}"></td>
                                     <td th:text="${user.role.description}"></td>
                                     <td>
                                         <a th:href="@{/user/update/{username}(username=${user.userName})}">
